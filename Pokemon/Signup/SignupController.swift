@@ -4,7 +4,7 @@ import UIKit
 import FirebaseAuth
 import JGProgressHUD
 
-class SignupController: UIViewController {
+class SignupController: UIViewController,UITextFieldDelegate {
 
     @IBOutlet weak var tf_email:UITextField!
     @IBOutlet weak var tf_pass:UITextField!
@@ -54,6 +54,16 @@ class SignupController: UIViewController {
             }
         }
     }
-
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        let nextTag = textField.tag + 1
+        let nextResponder = textField.superview?.viewWithTag(nextTag) as UIResponder!
+        
+        if nextResponder != nil {
+            nextResponder?.becomeFirstResponder()
+        } else {
+            textField.resignFirstResponder()
+        }
+        return false
+    }
 }
 

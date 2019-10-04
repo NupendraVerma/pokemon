@@ -7,7 +7,7 @@ import JGProgressHUD
 
 var USER_ANS = 0
 
-class QuizController: UIViewController {
+class QuizController: UIViewController ,UITextFieldDelegate{
 
     @IBOutlet weak var imgPokemon:UIImageView!
     @IBOutlet weak var btnOptA:UIButton!
@@ -184,5 +184,6 @@ extension QuizController{
         self.btnOptD.setTitle(String(self.getAnsArray[3]), for: .normal)
 
     }
+    
 }
 
